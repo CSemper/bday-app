@@ -25,24 +25,22 @@ def output_member_list(csv_reader, skip_header=True):
         except ValueError:
             log_message = {f'Failed to read csv row'}
             logging.error(log_message)
-            continue
     return member_list
 
 def get_age(day, month, year):
     """Check Age"""
     today = date.today()
-    age = today.year - year - ((today.month, today.day) < (month, day)) 
+    age = today.year - int (year) - ((today.month, today.day) < (int (month), int (day))) 
     return age
 
 def birthday_message(member_list):
+    message = ""
     today = date.today()
     day = today.strftime("%d/%m/%Y")
     for member in member_list:
         child = member.name.split()[0]
         age = member.age
         if member.birthday == day:
-            message = f"REMINDER: Today is {child}'s birthday! {age} years old today."
-        else:
-            message = "No birthdays"
-    yield message
+            message += f"REMINDER: Today is {child}'s birthday! {age} years old today.\n"
+    return message
     

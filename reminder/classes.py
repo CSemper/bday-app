@@ -7,7 +7,7 @@ class Member:
         self.age = age
     
     def __repr__(self):
-        return f (" {self.name}'s birthday is {self.birthday}. Age: {self.age}. Contact: {self.number}")
+        return (f" {self.name}'s birthday is {self.birthday}. Age: {self.age}. Contact: {self.number}")
     
     
    
