@@ -30,7 +30,11 @@ functions:
           - s3:ListBucket
         Resource:
           - arn:aws:s3:::ladywood-kidmin
-          - arn:aws:s3:::ladywood-kidmin/*
+      - Effect: 'Allow'
+        Action:
+          - sns:Publish
+        Resource:
+          - "*"
     events:
       - schedule:
           arn: !GetAtt DailyRule.Arn

@@ -16,7 +16,7 @@
     "bugs": {
       "url": "https://github.com/CSemper/bday-app.git/issues"
     },
-    "homepage": "https://github.com/CSemper/bday-app.git#readme",
+    "homepage": "https://github.com/CSemper/bday-app.git/#readme",
     "devDependencies": {
       "serverless-python-requirements": "^5.1.0"
     }

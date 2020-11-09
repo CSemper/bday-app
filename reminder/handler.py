@@ -28,7 +28,7 @@ def start(event, context):
         session = boto3.Session(region_name="eu-west-1")
         sns_client = session.client('sns')
         response = sns_client.publish(
-            PhoneNumber= 447940025593,
+            PhoneNumber= +447940025593,
             Message= message_to_send,
             MessageAttributes={
                 'AWS.SNS.SMS.SenderID': {

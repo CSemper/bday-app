@@ -1,6 +1,7 @@
 import csv
 import logging
 import boto3
+from datetime import date
 from classes import Member
 
 def read_csv_file_from_s3(bucket, key):
@@ -17,7 +18,9 @@ def output_member_list(csv_reader, skip_header=True):
         next(csv_reader)
     for line in csv_reader:
         try:
-            person = Member(line[0], line[1], line[2])
+            day, month, year = line[1].split('/')
+            age = get_age(day, month, year)
+            person = Member(line[0], line[1], line[2], age)
             member_list.append(person)
         except ValueError:
             log_message = {f'Failed to read csv row'}
@@ -25,13 +28,20 @@ def output_member_list(csv_reader, skip_header=True):
             continue
     return member_list
 
+def get_age(day, month, year):
+    """Check Age"""
+    today = date.today()
+    age = today.year - year - ((today.month, today.day) < (month, day)) 
+    return age
+
 def birthday_message(member_list):
+    today = date.today()
+    day = today.strftime("%d/%m/%Y")
     for member in member_list:
-        child = member.name
-        bday = member.bday
+        child = member.name.split()[0]
         age = member.age
-        if bday == "Today":
-            message = f"Today is {child}'s birthday! {age} years old today."
+        if member.birthday == day:
+            message = f"REMINDER: Today is {child}'s birthday! {age} years old today."
         else:
             message = "No birthdays"
     yield message
