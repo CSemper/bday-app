@@ -49,4 +49,3 @@ def start(event, context):
     except Exception as ERROR:
         log_message = {'SNS Message Failed to Send': {'error': str(ERROR)}}
         logging.error(log_message)
-start(None, None)
