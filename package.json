@@ -1,0 +1,23 @@
+
+{
+    "name": "ladywood-kidmin-project",
+    "version": "1.0.0",
+    "description": "A birthday reminder application",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/CSemper/bday-app.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/CSemper/bday-app.git/issues"
+    },
+    "homepage": "https://github.com/CSemper/bday-app.git#readme",
+    "devDependencies": {
+      "serverless-python-requirements": "^5.1.0"
+    }
+  }
