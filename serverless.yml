@@ -30,6 +30,7 @@ functions:
           - s3:ListBucket
         Resource:
           - arn:aws:s3:::ladywood-kidmin
+          - arn:aws:s3:::ladywood-kidmin/*
       - Effect: 'Allow'
         Action:
           - sns:Publish
@@ -38,7 +39,7 @@ functions:
     events:
       - schedule:
           arn: !GetAtt DailyRule.Arn
-          rate: cron(50 22 * * ? *)
+          rate: cron(59 23 * * ? *)
     
   
 resources:
@@ -48,7 +49,7 @@ resources:
       Properties: 
         Description: "A daily trigger for the bday reminder function"
         Name: "DailyRule"
-        ScheduleExpression: "cron(50 22 * * ? *)"
+        ScheduleExpression: "cron(59 23 * * ? *)"
         State: "ENABLED"
         Targets: 
           - 
