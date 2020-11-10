@@ -39,7 +39,7 @@ functions:
     events:
       - schedule:
           arn: !GetAtt DailyRule.Arn
-          rate: cron(05 00 * * ? *)
+          rate: cron(30 09 * * ? *)
     
   
 resources:
@@ -49,7 +49,7 @@ resources:
       Properties: 
         Description: "A daily trigger for the bday reminder function"
         Name: "DailyRule"
-        ScheduleExpression: "cron(05 00 * * ? *)"
+        ScheduleExpression: "cron(30 09 * * ? *)"
         State: "ENABLED"
         Targets: 
           - 
