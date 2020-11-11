@@ -3,4 +3,5 @@ LadywoodKidMin_members.csv
 .pytest_cache
 reminder/__pycache__/__init__.cpython-37.pyc
 /.DS_Store
+.DS_Store
 node_modules

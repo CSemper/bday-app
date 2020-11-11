@@ -42,8 +42,8 @@ functions:
           arn: !GetAtt DailyEventRule.Arn
           rate: cron(30 09 * * ? *)
     environment:
-      # TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_SECRET_ACCESS_KEY}}
-      # TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_SECRET_ACCESS_KEY_ID}}
+      TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_SECRET_ACCESS_KEY}}
+      TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_SECRET_ACCESS_KEY_ID}}
   
 resources:
   Resources:

@@ -3,18 +3,20 @@ import os
 import sys
 import twilio
 from twilio.rest import Client
+from dotenv import load_dotenv
 
 def connect_to_twilio():
     '''Returns connection to Twilio Account'''
-    account_sid = "AC1964dad759ab05232bfacc04319b6fc2"
-    auth_token = "a9ed21fdb0b610c948f65beb9924b12e"
+    load_dotenv()
+    account_sid = os.getenv("TWILIO_ACCOUNT_SID")
+    auth_token = os.getenv("TWILIO_AUTH_TOKEN")
     client = Client(account_sid, auth_token)
     return client
 
 def connect_to_twilio_method_2():
-    account_sid = "AC1964dad759ab05232bfacc04319b6fc2"
-    auth_token = "a9ed21fdb0b610c948f65beb9924b12e"
-    
+    load_dotenv()
+    account_sid = os.getenv("TWILIO_ACCOUNT_SID")
+    auth_token = os.getenv("TWILIO_AUTH_TOKEN")
     try:
         client = twilio.rest.TwilioRestClient(account_sid, auth_token)
     except twilio.TwilioRestException as e:
