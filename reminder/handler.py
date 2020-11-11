@@ -2,7 +2,7 @@ import logging
 import os
 import sys
 import boto3
-
+from sendsms import connect_to_twilio
 from functions import read_csv_file_from_s3, output_member_list, birthday_message
 
 logging.getLogger().setLevel(logging.ERROR)
@@ -29,23 +29,12 @@ def start(event, context):
         logging.error(log_message)
 
     try:
-        session = boto3.Session(region_name="eu-west-1")
-        sns_client = session.client('sns')
-        response = sns_client.publish(
-            PhoneNumber= "+447940025593",
-            Message= confirmed_message,
-            MessageAttributes={
-                'AWS.SNS.SMS.SenderID': {
-                'DataType': 'String',
-                'StringValue': 'SENDERID'
-                },
-                'AWS.SNS.SMS.SMSType': {
-                'DataType': 'String',
-                'StringValue': 'Promotional'
-                }
-            }
-        )
-        print (response)
+        #Connect to Twilio & Send SMS
+        client = connect_to_twilio()
+        publish = client.messages.create(to="+447940025593", 
+                       from_="+13158193109", 
+                       body= confirmed_message)
+        print (publish)
     except Exception as ERROR:
         log_message = {'SNS Message Failed to Send': {'error': str(ERROR)}}
         logging.error(log_message)

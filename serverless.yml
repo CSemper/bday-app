@@ -40,10 +40,13 @@ functions:
       - schedule:
           arn: !GetAtt DailyRule.Arn
           rate: cron(30 09 * * ? *)
-    
+    environment:
+      TWILIO_ACCOUNT_SID: "AC1964dad759ab05232bfacc04319b6fc2"
+      TWILIO_AUTH_TOKEN: "a9ed21fdb0b610c948f65beb9924b12e"
+
   
 resources:
-  Resources:  
+  Resources:
     DailyRule:
       Type: AWS::Events::Rule
       Properties: 
