@@ -1,5 +1,5 @@
 python-dotenv==0.14.0
-python-twilio==6.47.0
+twilio==6.47.0
 flake8
 mock
 nose
