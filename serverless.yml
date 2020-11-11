@@ -22,6 +22,7 @@ functions:
     module: reminder
     include:
       - reminder
+      - twilio
     timeout: 10
     iamRoleStatements:
       - Effect: 'Allow'
