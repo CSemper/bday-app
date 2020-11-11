@@ -1,2 +1,4 @@
 _pycache_
 LadywoodKidMin_members.csv
+.pytest_cache
+reminder/__pycache__/__init__.cpython-37.pyc

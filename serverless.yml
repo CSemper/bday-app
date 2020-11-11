@@ -1,4 +1,4 @@
-service: kid-min
+service: ladywood-kid-min
 
 provider:
   name: aws
