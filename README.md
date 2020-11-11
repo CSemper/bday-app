@@ -5,7 +5,10 @@
 ### Description:
 Never forget a birthday again! I thought it would be fun to build my own asynchronous application to send me a helpful text reminder of someone's birthday. <br/> 
 
-See the step by step on my [blog](http:nothingyet.com)
+The main function is stored in an AWS Lambda and is triggered once a day to check for any birthdays. If yes, the Twilio API is used to send a custom message: <br/> 
+
+> Today is {name}'s {age} birthday! Remember they wanted {special request}.
+> Call/Text them on {contact details}"
 
 <br/> 
 
