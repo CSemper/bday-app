@@ -19,6 +19,6 @@ def connect_to_twilio_method_2():
     auth_token = os.getenv("TWILIO_AUTH_TOKEN")
     try:
         client = twilio.rest.TwilioRestClient(account_sid, auth_token)
-    except twilio.TwilioRestException as e:
+    except Exception as e:
         print (e)
     return client
