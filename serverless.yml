@@ -23,6 +23,7 @@ functions:
     include:
       - reminder
       - twilio
+      - dotenv
     timeout: 10
     iamRoleStatements:
       - Effect: 'Allow'
@@ -32,11 +33,6 @@ functions:
         Resource:
           - arn:aws:s3:::ladywood-kidmin
           - arn:aws:s3:::ladywood-kidmin/*
-      - Effect: 'Allow'
-        Action:
-          - sns:Publish
-        Resource:
-          - "*"
     events:
       - schedule:
           arn: !GetAtt DailyEventRule.Arn
