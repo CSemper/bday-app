@@ -2,7 +2,7 @@ import logging
 import os
 import sys
 import boto3
-from sendsms import connect_to_twilio, connect_to_twilio_method_2
+from sendsms import connect_to_twilio
 from functions import read_csv_file_from_s3, output_member_list, birthday_message
 
 logging.getLogger().setLevel(logging.ERROR)
