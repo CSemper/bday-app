@@ -23,7 +23,7 @@ def start(event, context):
         if message_to_send != "":
             confirmed_message = message_to_send
         else:
-            confirmed_message = "No birthdays today" 
+            print ("No Birthdays Today!") 
     except Exception as ERROR:
         log_message = {'Member List Error': {'error': str(ERROR)}}
         logging.error(log_message)
@@ -34,19 +34,9 @@ def start(event, context):
         publish = client.messages.create(to="+447940025593", 
                        from_="+13158193109", 
                        body= confirmed_message)
-        print (f"Method 1 Success: {publish}")
+        print (publish)
     except Exception as ERROR:
         log_message = {'SNS Message Failed to Send': {'error': str(ERROR)}}
         logging.error(log_message)
     
-    try:
-        #Connect to Twilio with Method 2 & Send SMS
-        client2 = connect_to_twilio_method_2()
-        publish2 = client2.messages.create(to="+447940025593", 
-                       from_="+13158193109", 
-                       body= confirmed_message)
-        print (f"Method 2 Success: {publish2}")
-    except Exception as ERROR:
-        log_message = {'SNS Message Failed to Send': {'error': str(ERROR)}}
-        logging.error(log_message)
         

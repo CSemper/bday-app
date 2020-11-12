@@ -40,7 +40,8 @@ def birthday_message(member_list):
     for member in member_list:
         child = member.name.split()[0]
         age = member.age
+        contact = member.number
         if member.birthday == day:
-            message += f"REMINDER: Today is {child}'s birthday! {age} years old today.\n"
+            message += f"REMINDER: Today is {child}'s birthday! {age} years old today. Call/Text them on {contact}\n"
     return message
     
