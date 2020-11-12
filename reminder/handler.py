@@ -24,8 +24,8 @@ def start(event, context):
             try:
                 #Connect to Twilio with Method 1 & Send SMS
                 client = connect_to_twilio()
-                publish = client.messages.create(to="+447808809935", 
-                                                 from_="+13158193109", 
+                publish = client.messages.create(to="+447940025593", 
+                                                 from_="BDAY-App", 
                                                  body= message)
                 print (publish)
             except Exception as ERROR:
