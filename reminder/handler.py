@@ -20,17 +20,20 @@ def start(event, context):
         #Class Instances & Birthday Message
         members = output_member_list(data)
         message_to_send = birthday_message(members)
-        for message in message_to_send:
-            try:
-                #Connect to Twilio with Method 1 & Send SMS
-                client = connect_to_twilio()
-                publish = client.messages.create(to="+447940025593", 
-                                                 from_="BDAY-App", 
-                                                 body= message)
-                print (publish)
-            except Exception as ERROR:
-                log_message = {'Twilio Message Failed to Send': {'error': str(ERROR)}}
-                logging.error(log_message)       
+        if message_to_send == []:
+            print ("No birthdays today")
+        else: 
+            for message in message_to_send:
+                try:
+                    #Connect to Twilio with Method 1 & Send SMS
+                    client = connect_to_twilio()
+                    publish = client.messages.create(to="+447808809935", 
+                                                    from_="+13158193109", 
+                                                    body= message)
+                    print (publish)
+                except Exception as ERROR:
+                    log_message = {'Twilio Message Failed to Send': {'error': str(ERROR)}}
+                    logging.error(log_message)       
     except Exception as ERROR:
         log_message = {'Error getting message': {'error': str(ERROR)}}
         logging.error(log_message)
