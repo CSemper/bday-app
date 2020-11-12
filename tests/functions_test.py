@@ -27,3 +27,19 @@ def test_output_member_list():
     # ASSERT
     assert len(actual_output) == len(expected_output)
     assert actual_output == expected_output
+
+
+def test_birthday_message():
+    '''Test `birthday_message` returns a string of applicable birthday messages if birthday is today.
+    '''
+    # ARRANGE
+    # Create example class list
+    example_member_list = []
+    example_person = Member("Chenyse Test", "12/11/2012", "07123456789", 7)
+    example_member_list.append(example_person)
+    # Create expected message output
+    expected_output = "REMINDER: Today is Chenyse's birthday! 8 years old today. Call/Text them on 07123456789\n"
+    # ACT
+    actual_output = birthday_message(example_member_list)
+    # ASSERT
+    assert actual_output == expected_output
