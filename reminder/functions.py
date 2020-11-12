@@ -34,16 +34,17 @@ def get_age(day, month, year):
     return age
 
 def birthday_message(member_list):
-    message = ""
+    messages = []
     today = date.today()
-    day = today.strftime("%d/%m/%Y")
-    current_day, current_month, current_year = day.split('/')
     for member in member_list:
+        day = str(today.strftime("%d/%m"))
         child = member.name.split()[0]
         age = str(member.age)
         contact = member.number
-        birthday, birthmonth, birthyear = member.birthday.split('/')
-        if birthday == current_day and birthmonth == current_month:
-            message += f"REMINDER: Today is {child}'s birthday! {age} years old today. Call/Text them on {contact}\n"
-    return message
+        birthday,birthmonth, birthyear = member.birthday.split("/")
+        birthday_check = (birthday.strip() + "/" + birthmonth)
+        if day == birthday_check:
+            message = f"REMINDER: Today is {child}'s birthday! {age} years old today. Call/Text them on {contact}\n"
+            messages.append(message)
+    return messages
     
